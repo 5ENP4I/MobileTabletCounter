@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileTabletCounter.Views.Medicine"
+             Title="Medicine">
+    <ContentPage.Content>
+        
+        <StackLayout>
+            <ScrollView>
+                <StackLayout>
+                    <Label Text="Unfilled Bars" FontAttributes="Bold" />
+                    <StackLayout x:Name="unfilledBarsStackLayout" />
+                    <Label Text="Filled Bars" FontAttributes="Bold" />
+                    <StackLayout x:Name="filledBarsStackLayout" />
+                </StackLayout>
+            </ScrollView>
+            <Button Text="Create Bar" Clicked="CreateBarButton_Clicked" />
+            <Button Text="Remove All" Clicked="RemoveAllButton_Clicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

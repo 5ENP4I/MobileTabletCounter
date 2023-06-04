@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileTabletCounter.Views.Create"
+             Title="Create new">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Label Text="Name" />
+            <Entry Text="{Binding Name}" Placeholder="Enter name" />
+
+            <Label Text="Description" />
+            <Entry Text="{Binding Description}" Placeholder="Enter description" />
+
+            <Label Text="Color" />
+            <StackLayout Orientation="Horizontal">
+                <Entry x:Name="ColorEntry" Text="{Binding Color}" Placeholder="Enter hex color" />
+                <Button Text="Random" Clicked="RandomColorButton_Clicked" />
+            </StackLayout>
+
+            <Label Text="Current Progress" />
+            <Entry Text="{Binding CurrentProgres}" Placeholder="Enter current progress" Keyboard="Numeric" />
+
+            <Label Text="Max Consumations" />
+            <Entry Text="{Binding MaxConsumations}" Placeholder="Enter max consumations" Keyboard="Numeric" />
+
+            <Label x:Name="ErrorLabel" TextColor="Red" />
+
+            <Button Text="Confirm" Clicked="ConfirmButton_Clicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

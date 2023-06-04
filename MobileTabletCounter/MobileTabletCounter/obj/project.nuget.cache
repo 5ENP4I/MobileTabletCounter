@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "MdkG3w3kDFgE07eRSdmzEDMGwCDDBmHd7PPjwWNEtqhJcZ6uQx7IL6zzyByKcXqOOBhXc76pONKCfB6Ph6EpRQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Dima\\Desktop\\MobileTabletCounter\\MobileTabletCounter\\MobileTabletCounter.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Dima\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Dima\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\Dima\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\Dima\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
+    "C:\\Users\\Dima\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
+  ],
+  "logs": []
+}

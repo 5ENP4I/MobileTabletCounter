@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:MobileTabletCounter.Views"
+       Title="MobileTabletCounter"
+       x:Class="MobileTabletCounter.AppShell">
+
+    <!--
+        The overall app visual hierarchy is defined here, along with navigation.
+    
+        https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/
+    -->
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource ByzantineBlue}" />
+                <Setter Property="Shell.ForegroundColor" Value="{StaticResource Black}" />
+                <Setter Property="Shell.TitleColor" Value="{StaticResource AntiFlashWhite}" />
+                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource ByzantineBlue}" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource AntiFlashWhite}"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource AntiFlashWhite}"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource AntiFlashWhite}"/>
+            </Style>
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <TabBar>
+        <ShellContent Title="About" Icon="icon_about.png" Route="AboutPage" ContentTemplate="{DataTemplate local:Logs}" />
+        <ShellContent Title="Browse" Icon="icon_feed.png" ContentTemplate="{DataTemplate local:Medicine}" />
+    </TabBar>
+
+    <!--
+        If you would like to navigate to this content you can do so by calling
+        await Shell.Current.GoToAsync("//LoginPage");
+    -->
+
+
+</Shell>
