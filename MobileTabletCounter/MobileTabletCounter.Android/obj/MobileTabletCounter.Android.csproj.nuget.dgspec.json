@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dima\\Desktop\\MobileTabletCounter\\MobileTabletCounter.Android\\MobileTabletCounter.Android.csproj": {}
+    "C:\\Users\\Dima\\Desktop\\GitHub.png\\MobileTabletCounter\\MobileTabletCounter\\MobileTabletCounter.Android\\MobileTabletCounter.Android.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dima\\Desktop\\MobileTabletCounter\\MobileTabletCounter.Android\\MobileTabletCounter.Android.csproj": {
+    "C:\\Users\\Dima\\Desktop\\GitHub.png\\MobileTabletCounter\\MobileTabletCounter\\MobileTabletCounter.Android\\MobileTabletCounter.Android.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dima\\Desktop\\MobileTabletCounter\\MobileTabletCounter.Android\\MobileTabletCounter.Android.csproj",
+        "projectUniqueName": "C:\\Users\\Dima\\Desktop\\GitHub.png\\MobileTabletCounter\\MobileTabletCounter\\MobileTabletCounter.Android\\MobileTabletCounter.Android.csproj",
         "projectName": "MobileTabletCounter.Android",
-        "projectPath": "C:\\Users\\Dima\\Desktop\\MobileTabletCounter\\MobileTabletCounter.Android\\MobileTabletCounter.Android.csproj",
+        "projectPath": "C:\\Users\\Dima\\Desktop\\GitHub.png\\MobileTabletCounter\\MobileTabletCounter\\MobileTabletCounter.Android\\MobileTabletCounter.Android.csproj",
         "packagesPath": "C:\\Users\\Dima\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dima\\Desktop\\MobileTabletCounter\\MobileTabletCounter.Android\\obj\\",
+        "outputPath": "C:\\Users\\Dima\\Desktop\\GitHub.png\\MobileTabletCounter\\MobileTabletCounter\\MobileTabletCounter.Android\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -32,8 +32,8 @@
         "frameworks": {
           "monoandroid13.0": {
             "projectReferences": {
-              "C:\\Users\\Dima\\Desktop\\MobileTabletCounter\\MobileTabletCounter\\MobileTabletCounter.csproj": {
-                "projectPath": "C:\\Users\\Dima\\Desktop\\MobileTabletCounter\\MobileTabletCounter\\MobileTabletCounter.csproj"
+              "C:\\Users\\Dima\\Desktop\\GitHub.png\\MobileTabletCounter\\MobileTabletCounter\\MobileTabletCounter\\MobileTabletCounter.csproj": {
+                "projectPath": "C:\\Users\\Dima\\Desktop\\GitHub.png\\MobileTabletCounter\\MobileTabletCounter\\MobileTabletCounter\\MobileTabletCounter.csproj"
               }
             }
           }
@@ -54,14 +54,14 @@
         }
       }
     },
-    "C:\\Users\\Dima\\Desktop\\MobileTabletCounter\\MobileTabletCounter\\MobileTabletCounter.csproj": {
+    "C:\\Users\\Dima\\Desktop\\GitHub.png\\MobileTabletCounter\\MobileTabletCounter\\MobileTabletCounter\\MobileTabletCounter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dima\\Desktop\\MobileTabletCounter\\MobileTabletCounter\\MobileTabletCounter.csproj",
+        "projectUniqueName": "C:\\Users\\Dima\\Desktop\\GitHub.png\\MobileTabletCounter\\MobileTabletCounter\\MobileTabletCounter\\MobileTabletCounter.csproj",
         "projectName": "MobileTabletCounter",
-        "projectPath": "C:\\Users\\Dima\\Desktop\\MobileTabletCounter\\MobileTabletCounter\\MobileTabletCounter.csproj",
+        "projectPath": "C:\\Users\\Dima\\Desktop\\GitHub.png\\MobileTabletCounter\\MobileTabletCounter\\MobileTabletCounter\\MobileTabletCounter.csproj",
         "packagesPath": "C:\\Users\\Dima\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dima\\Desktop\\MobileTabletCounter\\MobileTabletCounter\\obj\\",
+        "outputPath": "C:\\Users\\Dima\\Desktop\\GitHub.png\\MobileTabletCounter\\MobileTabletCounter\\MobileTabletCounter\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

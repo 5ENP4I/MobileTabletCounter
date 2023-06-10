@@ -547,11 +547,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dima\\Desktop\\MobileTabletCounter\\MobileTabletCounter\\MobileTabletCounter.csproj",
+      "projectUniqueName": "C:\\Users\\Dima\\Desktop\\GitHub.png\\MobileTabletCounter\\MobileTabletCounter\\MobileTabletCounter\\MobileTabletCounter.csproj",
       "projectName": "MobileTabletCounter",
-      "projectPath": "C:\\Users\\Dima\\Desktop\\MobileTabletCounter\\MobileTabletCounter\\MobileTabletCounter.csproj",
+      "projectPath": "C:\\Users\\Dima\\Desktop\\GitHub.png\\MobileTabletCounter\\MobileTabletCounter\\MobileTabletCounter\\MobileTabletCounter.csproj",
       "packagesPath": "C:\\Users\\Dima\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dima\\Desktop\\MobileTabletCounter\\MobileTabletCounter\\obj\\",
+      "outputPath": "C:\\Users\\Dima\\Desktop\\GitHub.png\\MobileTabletCounter\\MobileTabletCounter\\MobileTabletCounter\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

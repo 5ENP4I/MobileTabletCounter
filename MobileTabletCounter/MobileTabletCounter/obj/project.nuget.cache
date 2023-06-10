@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MdkG3w3kDFgE07eRSdmzEDMGwCDDBmHd7PPjwWNEtqhJcZ6uQx7IL6zzyByKcXqOOBhXc76pONKCfB6Ph6EpRQ==",
+  "dgSpecHash": "dJGuRYCs/52YxTmW4CrV0GbzNte4Vkkb5I1k8ab1axRuiaAxOEIcERs7FMB38UXZnWpP3sCTFCy6q/TB1nYdhg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Dima\\Desktop\\MobileTabletCounter\\MobileTabletCounter\\MobileTabletCounter.csproj",
+  "projectFilePath": "C:\\Users\\Dima\\Desktop\\GitHub.png\\MobileTabletCounter\\MobileTabletCounter\\MobileTabletCounter\\MobileTabletCounter.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dima\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\Dima\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",

@@ -16,57 +16,74 @@ namespace MobileTabletCounter.Views
     public partial class Create : ContentPage
     {
         private Bar futureBar;
-        public string[] values = new string[5];
+        public bool noProblemsUponChecking = false;
+        
+        private TaskCompletionSource<bool> tcs;
 
-        public Create()
+        public Create(Bar bar)
         {
+            futureBar = bar;
+            BindingContext = futureBar;
             InitializeComponent();
         }
 
         //EVENT FOR SAVING AND CONFIRMING
         private async void ConfirmButton_Clicked(object sender, EventArgs e)
         {
-            // Check for negative values
-
-
-            // Close the dialog page
-
-            if (futureBar.CurrentDoze >= 0 && futureBar.MaxDoze >= 0 && futureBar.MaxDoze>= futureBar.CurrentDoze)
+            CheckIUpdateEnteries();
+            if (noProblemsUponChecking)
             {
-                ErrorLabel.Text = "Check doze parametrs!";
-                return;
+                await Navigation.PopModalAsync();
+                tcs?.TrySetResult(true);
             }
 
-            Navigation.PopModalAsync();
         }
 
-        //LEAVIG TB EVENT
+        public Task<bool> WaitForConfirmationAsync()
+        {
+            tcs = new TaskCompletionSource<bool>();
+            return tcs.Task;
+        }
 
-        //FUNC FOR CHEKING
 
+        //RENDER PREVIEV
+        public void RenderPreview()
+        {
+
+        }
+
+        
+        //EVENTS
         private void RandomColorButton_Clicked(object sender, EventArgs e)
         {
-            // Generate a random color
-            Random random = new Random();
-            string hexColor = String.Format("#{0:X6}", random.Next(0x1000000));
+            RandomColor();
+            string hexColor = RandomColor().ToHex();
 
             // Set the color entry value
             ColorEntry.Text = hexColor;
+            CheckIUpdateEnteries();
         }
 
+        private void AnyEntry_Unfocused(object sender, FocusEventArgs e)
+        {
+            CheckIUpdateEnteries();
+        }
+
+        //FUNC FOR CHEKING
         private bool IsNumeric(string input)
         {
-            if (double.TryParse(input, out _)||float.TryParse(input, out _)||int.TryParse(input, out _))
+            if (int.TryParse(input, out _)&&IsEmptyOrWhiteSpace(input)==false)
                 return true;
             return false;
         }
 
         private bool IsEmptyOrWhiteSpace(string input)
         {
-            return string.IsNullOrWhiteSpace(input);
+            if (string.IsNullOrWhiteSpace(input)==true||input == null)
+                return true;
+            return false;
         }
 
-        //Make "June" wariant
         private bool IsHexColor(string input)
         {
             Color[] excludedColors = {
@@ -76,11 +93,111 @@ namespace MobileTabletCounter.Views
                 (Color)Application.Current.Resources["Turquoise"],
                 (Color)Application.Current.Resources["Black"]
             };
-            if (input.Length != 7 || input[0] != '#')
+            if (IsEmptyOrWhiteSpace(input)|| input[0] != '#')
                 return false;
 
             string colorCode = input.ToUpperInvariant();
             return !excludedColors.Any(color => color.ToHex().ToUpperInvariant() == colorCode);
+        }
+        
+        //MAJOR CHECKING FUNC
+        public void CheckIUpdateEnteries()
+        {
+            noProblemsUponChecking = true;
+
+            //Name check
+            if (IsEmptyOrWhiteSpace(NameEntry.Text)==false)
+            {
+                futureBar.Name = NameEntry.Text;
+                ErrorLabel.Text = "";
+            }
+            else
+            {
+                ErrorLabel.Text = "Not valid (Name)";
+                noProblemsUponChecking = false;
+                return;
+            }
+
+            //Description check
+            if (IsEmptyOrWhiteSpace(DescriptionEntry.Text)==false)
+            {
+                futureBar.Description = DescriptionEntry.Text;
+                ErrorLabel.Text = "";
+            }
+            else
+            {
+                ErrorLabel.Text = "Not valid (Description)";
+                noProblemsUponChecking = false;
+                return;
+            }
+
+            //Color check
+            if (IsHexColor(ColorEntry.Text))
+            {
+                futureBar.Color = Color.FromHex(ColorEntry.Text);
+                ErrorLabel.Text = "";
+            }
+            else
+            {
+                ErrorLabel.Text = "Not valid (Color)";
+                noProblemsUponChecking = false;
+                return;
+            }
+
+            //MaxDoze Check
+            if (IsNumeric(MaxDozeEntry.Text))
+            {
+                if(int.Parse(MaxDozeEntry.Text) >= 0)
+                {
+                    futureBar.MaxDoze = int.Parse(MaxDozeEntry.Text);
+                    ErrorLabel.Text = "";
+                }
+                else
+                {
+                    ErrorLabel.Text = "Not valid (Max doze)";
+                    noProblemsUponChecking = false;
+                    return;
+                }
+            }
+            else
+            {
+                ErrorLabel.Text = "Not valid (Max doze)";
+                noProblemsUponChecking = false;
+                return;
+            }
+
+            //CurrentDoze Check
+            if (IsNumeric(CurrentDozeEntry.Text))
+            {
+                if((int.Parse(CurrentDozeEntry.Text) >= 0) && (int.Parse(MaxDozeEntry.Text) >= int.Parse(CurrentDozeEntry.Text)))
+                {
+                    futureBar.CurrentDoze = int.Parse(CurrentDozeEntry.Text);
+                    ErrorLabel.Text = "";
+                }
+                else
+                {
+                    ErrorLabel.Text = "Not valid (Current doze or Max doze)";
+                    noProblemsUponChecking = false;
+                    return;
+                } 
+            }
+            else
+            {
+                ErrorLabel.Text = "Not valid (Current doze)";
+                noProblemsUponChecking = false;
+                return;
+            }
+
+
+            RenderPreview();
+        }
+
+        //FUNC FOR GENERATION
+        public static Color RandomColor()
+        {
+            // Generate a random color
+            Random random = new Random();
+            return Color.FromHex(String.Format("#{0:X6}", random.Next(0x1000000)));
         }
 
     }

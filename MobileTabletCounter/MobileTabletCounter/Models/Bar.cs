@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace MobileTabletCounter.Models
 {
-    internal class Bar
+    public class Bar
     {
         public string Name { get; set; }
         public string Description { get; set; }
@@ -20,7 +20,7 @@ namespace MobileTabletCounter.Models
         }
         public Color Color { get; set; }
 
-        public Bar(string name, string description, int maxDoze, int currentDoze, double fill, Color color)
+        public Bar(string name, string description, int maxDoze, int currentDoze, Color color)
         {
             Name = name;
             Description = description;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using MobileTabletCounter.Models;
@@ -15,35 +16,38 @@ namespace MobileTabletCounter.Views
         public Medicine()
         {
             InitializeComponent();
+            
         }
 
         public static Logs _logs;
 
+
         private async void CreateBarButton_Clicked(object sender, EventArgs e)
         {
-            Create dialogPage = new Create();
-            NavigationPage navigationPage = new NavigationPage(dialogPage);
-            await Navigation.PushModalAsync(navigationPage);
+            Bar bar = new Bar("Name", "Description", 3,1,Color.Green);
 
-            // Generate random values for the new bar
-            var random = new Random();
-            var name = "Bar " + random.Next(1, 100);
-            var description = "Description " + random.Next(1, 100);
-            var maxDoze = random.Next(1, 10);
-            var currentDoze = random.Next(0, maxDoze);
-            float fill = 200f/(float)maxDoze * (float)currentDoze;
-            var color = Color.FromRgb(random.Next(0, 256), random.Next(0, 256), random.Next(0, 256));
+            // Dialog with the user about the futureBar (barFromCreate)
+            Create dialogPage = new Create(bar);
+            var tcs = new TaskCompletionSource<bool>();
+            dialogPage.Disappearing += (s, args) => tcs.TrySetResult(true);
+            await Navigation.PushModalAsync(dialogPage);
+
+            // Wait for the dialog to complete before continuing
+            await tcs.Task;
+
 
             // Create the new bar and add it to the unfilled bars stack layout
-            var bar = new Bar(name, description, maxDoze, currentDoze, fill, color);
             var barView = CreateBarView(bar);
-            unfilledBarsStackLayout.Children.Add(barView);
+            if(bar.CurrentDoze==bar.MaxDoze)
+                filledBarsStackLayout.Children.Add(barView);
+            else
+                unfilledBarsStackLayout.Children.Add(barView);
         }
 
         //CREATES A "BAR"
         private View CreateBarView(Bar bar)
         {
-            //BECAUSE XAMARIN SUCKS
+            //Because Xamarin and Binding sucks
             #region
             StackLayout mainPanel = new StackLayout();
 
@@ -104,8 +108,9 @@ namespace MobileTabletCounter.Views
         {
             unfilledBarsStackLayout.Children.Clear();
             filledBarsStackLayout.Children.Clear();
-
         }
+
+
 
         //Should be edited asap
         //FUNC FOR LOAD/SAVE
