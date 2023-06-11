@@ -19,10 +19,11 @@ namespace MobileTabletCounter.Views
         //CONSTRUCTOR AND PARAMETRS
         public Medicine()
         {
+            InitializeComponent();
             Settings._medicine = this;
             Logs._medicine = this;
-            InitializeComponent();
-            LoadData();
+            LoadBars();
+            
         }
         public static Logs _logs;
         public static Settings _settings;
@@ -56,8 +57,8 @@ namespace MobileTabletCounter.Views
         //CREATES A "BAR"
         private View CreateBarView(Bar bar)
         {
-            //Because Xamarin and Binding sucks
-            #region
+            //Xamarin forms, but in C#
+
             StackLayout mainPanel = new StackLayout();
 
             Label textAbove = new Label { Text = bar.Name, HorizontalOptions = LayoutOptions.Start, VerticalOptions = LayoutOptions.End };
@@ -83,13 +84,14 @@ namespace MobileTabletCounter.Views
             mainPanel.Children.Add(textAbove);
             mainPanel.Children.Add(gridInside);
             mainPanel.Children.Add(textBelow);
-            #endregion
 
+            //Checking where to put
             if(bar.CurrentDoze==0)
             {
                 barInside.IsVisible = false;
             }
 
+            //Tap to increase
             var tapGestureRecognizer = new TapGestureRecognizer();
             bool isCodeDisabled = false;
 
@@ -119,7 +121,8 @@ namespace MobileTabletCounter.Views
                         isCodeDisabled = false; // Enable the code execution
                         return false; // Stop the timer
                     });
-                    SaveData();
+                    SaveBars();
+                    _logs.SaveLogs();
                 }
             };
             mainPanel.GestureRecognizers.Add(tapGestureRecognizer);
@@ -153,7 +156,7 @@ namespace MobileTabletCounter.Views
         public void RemoveLogs()
         {
             _logs.Clear();
-            SaveData();
+            _logs.SaveLogs();
         }
 
         public void RemoveBars()
@@ -161,12 +164,12 @@ namespace MobileTabletCounter.Views
             bars.Clear();
             unfilledBarsStackLayout.Children.Clear();
             filledBarsStackLayout.Children.Clear();
-            SaveData();
+            SaveBars();
         }
 
         //FUNC FOR LOAD/SAVE
         
-        public void SaveData()
+        public void SaveBars()
         {
             var lines = new List<string>();
 
@@ -183,21 +186,13 @@ namespace MobileTabletCounter.Views
             var fileBarsPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "saveBars.txt");
             File.WriteAllLines(fileBarsPath, lines);
 
-            var fileLogsPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "saveLogs.txt");
-            File.WriteAllLines(fileLogsPath, Logs.logs);
-
-            Debug.WriteLine("Saved");
         }
 
-        public void LoadData()
+        public void LoadBars()
         {
             // Check if the save file exists
             var fileBarsPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "saveBars.txt");
             if (!File.Exists(fileBarsPath))
-                return;
-
-            var fileLogsPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "saveLogs.txt");
-            if (!File.Exists(fileLogsPath))
                 return;
 
             //Clears all Children in app
@@ -208,15 +203,6 @@ namespace MobileTabletCounter.Views
             StreamReader sr = new StreamReader(fileBarsPath);
             var lines = sr.ReadToEnd().Split('\n');
             sr.Close();
-
-            StreamReader srLogs = new StreamReader(fileLogsPath);
-            var linesLogs = srLogs.ReadToEnd().Split('\n');
-            srLogs.Close();
-            foreach (var log in linesLogs)
-            {
-                _logs.AddTimeLabel(log);
-                
-            }
 
             foreach (var line in lines)
             {
@@ -248,7 +234,6 @@ namespace MobileTabletCounter.Views
                     bars.Add(bar);
                 }
             }
-            Debug.WriteLine("Loaded");
         }
 
     }

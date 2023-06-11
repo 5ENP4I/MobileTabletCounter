@@ -45,7 +45,7 @@
                        Placeholder="Enter hex color"
                        Unfocused="AnyEntry_Unfocused"/>
 
-                <Button Text="Random" Clicked="RandomColorButton_Clicked"  CornerRadius="50" Style="{StaticResource RedButton}"/>
+                <Button Text="Random" Clicked="RandomColorButton_Clicked"  CornerRadius="50" Style="{StaticResource BlueButton}"/>
             </StackLayout>
 
             <Label Text="Max Consumations" />
@@ -63,8 +63,8 @@
             <Label x:Name="ErrorLabel" TextColor="Red" />
 
             <StackLayout FlowDirection="LeftToRight">
-                <Button x:Name="Cancel" Text="Cancel" Clicked="CancelButton_Clicked" />
-                <Button x:Name="Confirm" Text="Confirm" Clicked="ConfirmButton_Clicked" />
+                <Button x:Name="Confirm" Text="Confirm" Clicked="ConfirmButton_Clicked" Style="{StaticResource BlueButton}"/>
+                <Button x:Name="Cancel" Text="Cancel" Clicked="CancelButton_Clicked" Style="{StaticResource BlueButton}"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

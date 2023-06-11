@@ -1280,3 +1280,6 @@ C:\Users\Dima\Desktop\GitHub.png\MobileTabletCounter\MobileTabletCounter\MobileT
 C:\Users\Dima\Desktop\GitHub.png\MobileTabletCounter\MobileTabletCounter\MobileTabletCounter.Android\obj\Debug\130\stamp\_GenerateJavaStubs.stamp
 C:\Users\Dima\Desktop\GitHub.png\MobileTabletCounter\MobileTabletCounter\MobileTabletCounter.Android\obj\Debug\130\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\Dima\Desktop\GitHub.png\MobileTabletCounter\MobileTabletCounter\MobileTabletCounter.Android\obj\Debug\130\stamp\_ResolveLibraryProjectImports.stamp
+C:\Users\Dima\Desktop\GitHub.png\MobileTabletCounter\MobileTabletCounter\MobileTabletCounter.Android\obj\Debug\130\res\drawable\logs.png
+C:\Users\Dima\Desktop\GitHub.png\MobileTabletCounter\MobileTabletCounter\MobileTabletCounter.Android\obj\Debug\130\res\drawable\medicine.png
+C:\Users\Dima\Desktop\GitHub.png\MobileTabletCounter\MobileTabletCounter\MobileTabletCounter.Android\obj\Debug\130\res\drawable\settings.png

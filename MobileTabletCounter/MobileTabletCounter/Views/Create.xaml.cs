@@ -103,9 +103,7 @@ namespace MobileTabletCounter.Views
         private bool IsHexColor(string input)
         {
             Color[] excludedColors = {
-                (Color)Application.Current.Resources["Cerise"],
                 (Color)Application.Current.Resources["AntiFlashWhite"],
-                (Color)Application.Current.Resources["ByzantineBlue"],
                 (Color)Application.Current.Resources["Turquoise"],
                 (Color)Application.Current.Resources["Black"]
             };

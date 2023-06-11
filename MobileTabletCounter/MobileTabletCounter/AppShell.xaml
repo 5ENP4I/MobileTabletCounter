@@ -24,25 +24,14 @@
                 <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource AntiFlashWhite}"/>
                 <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource AntiFlashWhite}"/>
             </Style>
-            <Style x:Key="RedStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="{StaticResource Cerise}" />
-                <Setter Property="Shell.ForegroundColor" Value="{StaticResource AntiFlashWhite}" />
-                <Setter Property="Shell.TitleColor" Value="{StaticResource AntiFlashWhite}" />
-                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
-                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
-                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Cerise}" />
-                <Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource AntiFlashWhite}"/>
-                <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource AntiFlashWhite}"/>
-                <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource AntiFlashWhite}"/>
-            </Style>
             <Style TargetType="TabBar" BasedOn="{StaticResource BlueStyle}"/>
         </ResourceDictionary>
     </Shell.Resources>
 
     <TabBar>
-        <ShellContent Title="Logs" Icon="icon_about.png" ContentTemplate="{DataTemplate local:Logs}" />
-        <ShellContent Title="Medicine" Icon="icon_feed.png" Route="AboutPage" ContentTemplate="{DataTemplate local:Medicine}" />
-        <ShellContent Title="Settings" Icon="icon_feed.png" ContentTemplate="{DataTemplate local:Settings}" />
+        <ShellContent Title="Medicine" Icon="medicine.png" Route="AboutPage" ContentTemplate="{DataTemplate local:Medicine}" />
+        <ShellContent Title="Logs" Icon="logs.png" ContentTemplate="{DataTemplate local:Logs}" />
+        <ShellContent Title="Settings" Icon="settings.png" ContentTemplate="{DataTemplate local:Settings}" />
     </TabBar>
 
     <!--

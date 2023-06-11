@@ -21,6 +21,7 @@ namespace MobileTabletCounter.Views
         {
             InitializeComponent();
             Medicine._settings = this;
+            Logs._settings = this;
         }
 
         protected override void OnAppearing()
@@ -32,18 +33,21 @@ namespace MobileTabletCounter.Views
                 clearBars.IsVisible = true;
                 clearLogs.IsVisible = true;
                 clearData.IsVisible = true;
-                // Set app color theme to red
-                switchModes.Style = (Style)Application.Current.Resources["RedButton"];
 
+                _medicine.Title = "Admin";
+                _logs.Title = "Admin";
+                this.Title = "Admin";
             }
             else
             {
-                DisplayAlert("Alert", "Welcome to the Settings page!", "OK");
+                DisplayAlert("Alert", "Dont click here if you dont want to destroy your tabs!", "OK");
                 clearBars.IsVisible = false;
                 clearLogs.IsVisible = false;
                 clearData.IsVisible = false;
-                // Set app color theme to blue
-                switchModes.Style = (Style)Application.Current.Resources["BlueButton"];
+
+                _medicine.Title = "Medicine";
+                _logs.Title = "Logs";
+                this.Title = "Settings";
             }
         }
 
@@ -57,15 +61,12 @@ namespace MobileTabletCounter.Views
                 clearBars.IsVisible = true;
                 clearLogs.IsVisible = true;
                 clearData.IsVisible = true;
-                // Set app color theme to red
             }
             else
             {
-                DisplayAlert("Alert", "Welcome to the Settings page!", "OK");
                 clearBars.IsVisible = false;
                 clearLogs.IsVisible = false;
                 clearData.IsVisible = false;
-                // Set app color theme to blue
             }
         }
 

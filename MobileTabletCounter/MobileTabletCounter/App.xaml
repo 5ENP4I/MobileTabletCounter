@@ -8,21 +8,13 @@
     <Application.Resources>
         <ResourceDictionary>
             <Color x:Key="AntiFlashWhite">#EFEFEF</Color>
-            <Color x:Key="ByzantineBlue">#3454d1</Color>
-            <Color x:Key="Turquoise">#34d1bf</Color>
+            <Color x:Key="Turquoise">#006985</Color>
             <Color x:Key="Black">#070707</Color>
-            <Color x:Key="Cerise">#d1345b</Color>
-
-            
-            
-            
             <Style x:Key="BlueButton" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="{StaticResource Turquoise}"></Setter>
                 <Setter Property="BorderColor" Value="{StaticResource Turquoise}"></Setter>
-            </Style>
-            <Style x:Key="RedButton" TargetType="Button">
-                <Setter Property="BackgroundColor" Value="{StaticResource Cerise}"></Setter>
-                <Setter Property="BorderColor" Value="{StaticResource Cerise}"></Setter>
+                <Setter Property="TextColor" Value="{StaticResource AntiFlashWhite}"></Setter>
+                <Setter Property="CornerRadius" Value="50"></Setter>
             </Style>
         </ResourceDictionary>        
     </Application.Resources>
