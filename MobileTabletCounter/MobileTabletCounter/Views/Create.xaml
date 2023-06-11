@@ -7,7 +7,7 @@
         <StackLayout Padding="10">
 
             <StackLayout x:Name="mainPanel" BindingContext="Bar">
-                <Label Text="{Binding Name}" HorizontalOptions="Start" VerticalOptions="End" />
+                <Label x:Name="nameLb" HorizontalOptions="Start" VerticalOptions="End" />
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
@@ -15,17 +15,17 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
 
-                    <Frame x:Name="barOutside" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="200" HeightRequest="15" BorderColor="{Binding Color}" CornerRadius="50" />
-                    <Frame x:Name="barInside" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="{Binding Fill}" HeightRequest="15" BackgroundColor="{Binding Color}" BorderColor="{Binding Color}" CornerRadius="50" />
+                    <Frame x:Name="barOutside" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="200" HeightRequest="15" CornerRadius="50" />
+                    <Frame x:Name="barInside" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="15" CornerRadius="50" />
 
                     <StackLayout x:Name="progressCounter" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                        <Label Text="{Binding CurrentDoze}" HorizontalOptions="Start" VerticalOptions="Center" />
+                        <Label x:Name="currentDozeLb" HorizontalOptions="Start" VerticalOptions="Center" />
                         <Label Text="/" HorizontalOptions="Center" VerticalOptions="Center" />
-                        <Label Text="{Binding MaxDoze}" HorizontalOptions="End" VerticalOptions="Center" />
+                        <Label x:Name="maxDozeLb" HorizontalOptions="End" VerticalOptions="Center" />
                     </StackLayout>
                 </Grid>
 
-                <Label Text="{Binding Description}" HorizontalOptions="Start" VerticalOptions="Start" />
+                <Label x:Name="descriptionLb" HorizontalOptions="Start" VerticalOptions="Start" />
             </StackLayout>
 
             <Label Text="Name" />
@@ -44,25 +44,28 @@
                 <Entry x:Name="ColorEntry" 
                        Placeholder="Enter hex color"
                        Unfocused="AnyEntry_Unfocused"/>
-                
-                <Button Text="Random" Clicked="RandomColorButton_Clicked" />
-            </StackLayout>
 
-            <Label Text="Current Progress" />
-            <Entry x:Name="CurrentDozeEntry" 
-                   Placeholder="Enter current progress" 
-                   Keyboard="Numeric"
-                   Unfocused="AnyEntry_Unfocused"/>
+                <Button Text="Random" Clicked="RandomColorButton_Clicked"  CornerRadius="50" Style="{StaticResource RedButton}"/>
+            </StackLayout>
 
             <Label Text="Max Consumations" />
             <Entry x:Name="MaxDozeEntry" 
                    Placeholder="Enter max consumations" 
                    Keyboard="Numeric"
                    Unfocused="AnyEntry_Unfocused"/>
+            
+            <Label Text="Current Progress" />
+            <Entry x:Name="CurrentDozeEntry" 
+                   Placeholder="Enter current progress" 
+                   Keyboard="Numeric"
+                   Unfocused="AnyEntry_Unfocused"/>
 
             <Label x:Name="ErrorLabel" TextColor="Red" />
 
-            <Button x:Name="Confirm" Text="Confirm" Clicked="ConfirmButton_Clicked" />
+            <StackLayout FlowDirection="LeftToRight">
+                <Button x:Name="Cancel" Text="Cancel" Clicked="CancelButton_Clicked" />
+                <Button x:Name="Confirm" Text="Confirm" Clicked="ConfirmButton_Clicked" />
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

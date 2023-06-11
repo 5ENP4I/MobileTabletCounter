@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileTabletCounter.Views.Settings">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <Button x:Name="switchModes" Text="Switch mode" Clicked="SwitchModeButton_Clicked" CornerRadius="50" Padding="10,10" Style="{StaticResource BlueButton}"/>
+            <Button x:Name="clearData" Text="Clear Data" Clicked="ClearDataButton_Clicked" CornerRadius="50" Padding="10,10" Style="{StaticResource RedButton}"/>
+            <Button x:Name ="clearBars" Text="Clear Bars" Clicked="ClearBarsButton_Clicked" CornerRadius="50" Padding="10,10" Style="{StaticResource RedButton}"/>
+            <Button x:Name="clearLogs" Text="Clear Logs" Clicked="ClearLogsButton_Clicked" CornerRadius="50" Padding="10,10" Style="{StaticResource RedButton}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

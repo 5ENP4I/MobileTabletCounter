@@ -34,3 +34,4 @@ C:\Users\Dima\Desktop\GitHub.png\MobileTabletCounter\MobileTabletCounter\MobileT
 C:\Users\Dima\Desktop\GitHub.png\MobileTabletCounter\MobileTabletCounter\MobileTabletCounter\obj\Debug\netstandard2.0\refint\MobileTabletCounter.dll
 C:\Users\Dima\Desktop\GitHub.png\MobileTabletCounter\MobileTabletCounter\MobileTabletCounter\obj\Debug\netstandard2.0\MobileTabletCounter.pdb
 C:\Users\Dima\Desktop\GitHub.png\MobileTabletCounter\MobileTabletCounter\MobileTabletCounter\obj\Debug\netstandard2.0\ref\MobileTabletCounter.dll
+C:\Users\Dima\Desktop\GitHub.png\MobileTabletCounter\MobileTabletCounter\MobileTabletCounter\obj\Debug\netstandard2.0\Views\Settings.xaml.g.cs

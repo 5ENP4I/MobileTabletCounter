@@ -7,6 +7,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.Diagnostics;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,19 +16,17 @@ namespace MobileTabletCounter.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Create : ContentPage
     {
+        //PARAMETRS AND CONSTRUCTOR
         private Bar futureBar;
         public bool noProblemsUponChecking = false;
-        
-        private TaskCompletionSource<bool> tcs;
 
         public Create(Bar bar)
         {
             futureBar = bar;
-            BindingContext = futureBar;
             InitializeComponent();
         }
 
-        //EVENT FOR SAVING AND CONFIRMING
+        //CONFIRM/CANCEL BUTON + METHOD
         private async void ConfirmButton_Clicked(object sender, EventArgs e)
         {
             CheckIUpdateEnteries();
@@ -36,9 +35,16 @@ namespace MobileTabletCounter.Views
                 await Navigation.PopModalAsync();
                 tcs?.TrySetResult(true);
             }
-
         }
 
+        private async void CancelButton_Clicked(object sender, EventArgs e)
+        {
+            futureBar.MaxDoze = -1;
+            await Navigation.PopModalAsync();
+            tcs?.TrySetResult(false);
+        }
+
+        private TaskCompletionSource<bool> tcs;
         public Task<bool> WaitForConfirmationAsync()
         {
             tcs = new TaskCompletionSource<bool>();
@@ -49,10 +55,17 @@ namespace MobileTabletCounter.Views
         //RENDER PREVIEV
         public void RenderPreview()
         {
-
+            nameLb.Text = futureBar.Name;
+            descriptionLb.Text = futureBar.Description;
+            barOutside.BorderColor = futureBar.Color;
+            barInside.BorderColor = futureBar.Color;
+            barInside.WidthRequest = futureBar.Fill;
+            barInside.BackgroundColor = futureBar.Color;
+            maxDozeLb.Text = futureBar.MaxDoze.ToString();
+            currentDozeLb.Text = futureBar.CurrentDoze.ToString();
         }
 
-        
+
         //EVENTS
         private void RandomColorButton_Clicked(object sender, EventArgs e)
         {
@@ -62,12 +75,15 @@ namespace MobileTabletCounter.Views
             // Set the color entry value
             ColorEntry.Text = hexColor;
             CheckIUpdateEnteries();
+            RenderPreview();
         }
 
         private void AnyEntry_Unfocused(object sender, FocusEventArgs e)
         {
             CheckIUpdateEnteries();
+            RenderPreview();
         }
+
 
         //FUNC FOR CHEKING
         private bool IsNumeric(string input)
@@ -99,7 +115,8 @@ namespace MobileTabletCounter.Views
             string colorCode = input.ToUpperInvariant();
             return !excludedColors.Any(color => color.ToHex().ToUpperInvariant() == colorCode);
         }
-        
+
+
         //MAJOR CHECKING FUNC
         public void CheckIUpdateEnteries()
         {
@@ -147,7 +164,7 @@ namespace MobileTabletCounter.Views
             //MaxDoze Check
             if (IsNumeric(MaxDozeEntry.Text))
             {
-                if(int.Parse(MaxDozeEntry.Text) >= 0)
+                if (int.Parse(MaxDozeEntry.Text) > 0)
                 {
                     futureBar.MaxDoze = int.Parse(MaxDozeEntry.Text);
                     ErrorLabel.Text = "";
@@ -169,7 +186,7 @@ namespace MobileTabletCounter.Views
             //CurrentDoze Check
             if (IsNumeric(CurrentDozeEntry.Text))
             {
-                if((int.Parse(CurrentDozeEntry.Text) >= 0) && (int.Parse(MaxDozeEntry.Text) >= int.Parse(CurrentDozeEntry.Text)))
+                if ((int.Parse(CurrentDozeEntry.Text) >= 0) && (int.Parse(MaxDozeEntry.Text) >= int.Parse(CurrentDozeEntry.Text)))
                 {
                     futureBar.CurrentDoze = int.Parse(CurrentDozeEntry.Text);
                     ErrorLabel.Text = "";
@@ -179,7 +196,7 @@ namespace MobileTabletCounter.Views
                     ErrorLabel.Text = "Not valid (Current doze or Max doze)";
                     noProblemsUponChecking = false;
                     return;
-                } 
+                }
             }
             else
             {
@@ -187,10 +204,8 @@ namespace MobileTabletCounter.Views
                 noProblemsUponChecking = false;
                 return;
             }
-
-
-            RenderPreview();
         }
+
 
         //FUNC FOR GENERATION
         public static Color RandomColor()

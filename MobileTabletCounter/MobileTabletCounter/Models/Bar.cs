@@ -19,6 +19,12 @@ namespace MobileTabletCounter.Models
             }
         }
         public Color Color { get; set; }
+        private DateTime savedDate;
+        public DateTime LastConsume
+        {
+            get { return savedDate; }
+            set { savedDate = value; }
+        }
 
         public Bar(string name, string description, int maxDoze, int currentDoze, Color color)
         {
@@ -27,6 +33,7 @@ namespace MobileTabletCounter.Models
             MaxDoze = maxDoze;
             CurrentDoze = currentDoze;
             Color = color;
+            LastConsume = DateTime.Now;
         }
 
         public Bar()
